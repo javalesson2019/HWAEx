@@ -15,6 +15,7 @@ public class RegistrationCheck {
     }
 
     public RegistrationCheck(String connectionString, String user, String password) throws SQLException {
+        // подключение к бд нужно закрывать
         connection = DriverManager.getConnection(connectionString, user, password);
         DatabaseMetaData metaData = connection.getMetaData();
         if (metaData.supportsTransactionIsolationLevel(Connection.TRANSACTION_REPEATABLE_READ)) {

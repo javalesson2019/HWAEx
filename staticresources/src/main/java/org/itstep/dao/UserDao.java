@@ -48,6 +48,7 @@ public class UserDao extends GenericDao<User> {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(SELECT);
             while (resultSet.next()) {
+                // id нужно брать из базы данных
                 list.add(new User(i++, resultSet.getString("login"), resultSet.getString("password")));
             }
             commit();
